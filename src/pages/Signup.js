@@ -14,7 +14,7 @@ import {
   Label,
   Row,
 } from "reactstrap";
-import { SingUp } from "../services/user-service";
+import { singUp } from "../services/user-service";
 import Base from "../components/Base";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -37,7 +37,7 @@ const Signup = () => {
 
   const submitForm = (event) => {
     event.preventDefault();
-    SingUp(data)
+    singUp(data)
       .then((resp) => {
         toast.success("User registered sucessfully !");
         setData({
