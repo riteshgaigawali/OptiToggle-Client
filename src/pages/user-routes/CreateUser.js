@@ -1,3 +1,4 @@
+import { React, useEffect, useState } from "react";
 import { NavLink as ReactLink, useNavigate } from "react-router-dom";
 import {
   Button,
@@ -14,16 +15,16 @@ import {
   Label,
   Row,
 } from "reactstrap";
-import { singUp } from "../services/user-service";
-import Base from "../components/Base";
-import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { SiGnuprivacyguard } from "react-icons/si";
+import Base from "../../components/Base";
+import AdminNav from "../../components/AdminNav";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FaRegUser } from "react-icons/fa";
+import { TiUserAdd } from "react-icons/ti";
+import { createNewUser } from "../../services/user-service";
 
-const Signup = () => {
+function CreateUser() {
   const navigate = useNavigate();
 
   const [data, setData] = useState({
@@ -44,18 +45,19 @@ const Signup = () => {
 
   const submitForm = (event) => {
     event.preventDefault();
-    singUp(data)
+    createNewUser(data)
       .then((resp) => {
-        toast.success("User registered sucessfully !");
+        toast.success(data.messege);
         setData({
           firstName: "",
           lastName: "",
           emailid: "",
           password: "",
         });
-        navigate("/login");
+        navigate("/user/user-management");
       })
       .catch((error) => {
+        console.log(error);
         setError({
           errors: error,
           isError: true,
@@ -65,13 +67,14 @@ const Signup = () => {
 
   return (
     <Base>
+      <AdminNav />
       <Container>
         <Row className="mt-5">
           <Col sm={{ size: 6, offset: 3 }}>
             <Card color="dark" inverse>
               <CardHeader>
                 <h6>
-                  SignUp <SiGnuprivacyguard size={50} />
+                  Create User <TiUserAdd size={30} />
                 </h6>
               </CardHeader>
               <CardBody>
@@ -79,7 +82,7 @@ const Signup = () => {
                   <FormGroup>
                     <Label for="firstName">
                       <FaRegUser size={25} />
-                      Enter your first name{" "}
+                      Enter first name
                     </Label>
                     <Input
                       type="text"
@@ -98,7 +101,7 @@ const Signup = () => {
 
                   <FormGroup>
                     <Label for="lastName">
-                      <FaRegUser size={25} /> Enter your last name{" "}
+                      <FaRegUser size={25} /> Enter last name
                     </Label>
                     <Input
                       type="text"
@@ -118,7 +121,7 @@ const Signup = () => {
                   <FormGroup>
                     <Label for="emailid">
                       <MdEmail size={25} />
-                      Enter your email
+                      Enter email address
                     </Label>
                     <Input
                       type="email"
@@ -138,7 +141,7 @@ const Signup = () => {
                   <FormGroup>
                     <Label for="password">
                       <RiLockPasswordFill size={25} />
-                      Enter your password
+                      Enter password
                     </Label>
                     <Input
                       type="password"
@@ -156,11 +159,8 @@ const Signup = () => {
                   </FormGroup>
                   <Container className="text-center mt-5">
                     <Button color="light" outline>
-                      SingUp
+                      Create User
                     </Button>
-                    <CardLink tag={ReactLink} to="/login">
-                      <h6>Already have an account ? Login</h6>
-                    </CardLink>
                   </Container>
                 </Form>
               </CardBody>
@@ -170,6 +170,6 @@ const Signup = () => {
       </Container>
     </Base>
   );
-};
+}
 
-export default Signup;
+export default CreateUser;

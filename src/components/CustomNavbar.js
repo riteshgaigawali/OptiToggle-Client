@@ -8,13 +8,18 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
 } from "reactstrap";
 import { getCurrentUser, isLoggedIn, doLogout } from "../auth";
+import { IoHome } from "react-icons/io5";
+import { IoDocumentText } from "react-icons/io5";
+import { FaGithub } from "react-icons/fa6";
+import { IoMdPricetags } from "react-icons/io";
+import { MdContactSupport } from "react-icons/md";
+import { MdDashboardCustomize } from "react-icons/md";
+import { RiLogoutCircleRFill } from "react-icons/ri";
+import { RiLoginCircleFill } from "react-icons/ri";
+import { SiGnuprivacyguard } from "react-icons/si";
+import { BsToggle2On } from "react-icons/bs";
 
 function CustomNavbar(args) {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +39,7 @@ function CustomNavbar(args) {
   const logout = () => {
     doLogout(() => {
       setLogin(false);
-      navigate("/");
+      navigate("/login");
     });
   };
 
@@ -42,45 +47,57 @@ function CustomNavbar(args) {
     <div>
       <Navbar color="dark" dark expand="md" fixed="" className="px-5">
         <NavbarBrand tag={ReactLink} to="/">
-          OptiToggle
+          <BsToggle2On size={50} />
+          ptiToggle
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="me-auto" navbar>
+          <Nav className="me-auto mx-auto" navbar>
             <NavItem>
               <NavLink tag={ReactLink} to="/">
-                Home
+                <IoHome size={20} /> Home
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink tag={ReactLink} to="/documentation">
+                <IoDocumentText size={20} />
                 Documentation
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink
-                tag={ReactLink}
-                to="https://github.com/riteshgaigawali/OptiToggle"
-              >
+              <NavLink tag={ReactLink} to="https://github.com/riteshgaigawali/">
+                <FaGithub size={20} />
                 GitHub
               </NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink tag={ReactLink} to="">
+                <IoMdPricetags size={20} /> Pricing
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={ReactLink} to="">
+                <MdContactSupport size={20} /> Contact Us
+              </NavLink>
+            </NavItem>
           </Nav>
-
-          <Nav navbar>
+          <Nav navbar fill pills>
             {login && (
               <>
                 <NavItem>
-                  <NavLink tag={ReactLink} to="/user/profile-info">
-                    Profile Info
+                  <NavLink tag={ReactLink} to="/user/admin-dashboard">
+                    <MdDashboardCustomize size={20} /> Dashboard
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink onClick={logout}>Logout</NavLink>
+                  <NavLink tag={ReactLink} to="/user/profile-info">
+                    {"Hello, " + user.firstName + " welcome!"}
+                  </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={ReactLink} to="/user/admin-dashboard">
-                    {user.emailid}
+                  <NavLink onClick={logout}>
+                    <RiLogoutCircleRFill size={20} />
+                    Logout
                   </NavLink>
                 </NavItem>
               </>
@@ -89,12 +106,12 @@ function CustomNavbar(args) {
               <>
                 <NavItem>
                   <NavLink tag={ReactLink} to="/login">
-                    Login
+                    <RiLoginCircleFill size={20} /> Login
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink tag={ReactLink} to="/signup">
-                    SignUp
+                    <SiGnuprivacyguard size={20} /> SignUp
                   </NavLink>
                 </NavItem>
               </>

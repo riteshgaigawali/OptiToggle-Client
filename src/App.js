@@ -11,6 +11,9 @@ import "react-toastify/dist/ReactToastify.css";
 import AdminDashboard from "./pages/user-routes/AdminDashboard";
 import Privateroute from "./components/Privateroute";
 import ProfileInfo from "./pages/user-routes/ProfileInfo";
+import UserManagment from "./pages/user-routes/UserManagment";
+import ToggleManagement from "./pages/user-routes/ToggleManagement";
+import CreateUser from "./pages/user-routes/CreateUser";
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
         <Route path="/user" element={<Privateroute />}>
           <Route path="admin-dashboard" element={<AdminDashboard />} />
           <Route path="profile-info" element={<ProfileInfo />} />
+          <Route path="user-management" element={<UserManagment />} />
+          <Route path="add-user" element={<CreateUser />} />
+          <Route path="toggle-management" element={<ToggleManagement />} />
         </Route>
       </Routes>
     </BrowserRouter>

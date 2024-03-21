@@ -1,10 +1,10 @@
-import React from "react";
+import AdminNav from "../../components/AdminNav";
 import Base from "../../components/Base";
 
 const AdminDashboard = () => {
   return (
     <Base>
-      <div>This is admin dashboard </div>
+      <AdminNav />
     </Base>
   );
 };

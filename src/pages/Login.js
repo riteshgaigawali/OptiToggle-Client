@@ -18,6 +18,10 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { loginUser } from "../services/user-service";
 import { doLogin, doLogout } from "../auth";
+import { RiLoginCircleFill } from "react-icons/ri";
+import { MdEmail } from "react-icons/md";
+import { RiLockPasswordFill } from "react-icons/ri";
+
 const Login = () => {
   const navigate = useNavigate();
 
@@ -36,7 +40,6 @@ const Login = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(loginDetails);
     if (
       loginDetails.username.trim() == "" ||
       loginDetails.password.trim() == ""
@@ -46,9 +49,7 @@ const Login = () => {
     }
     loginUser(loginDetails)
       .then((data) => {
-        console.log(data);
         doLogin(data, () => {
-          console.log("login details stored to localStorage !");
           navigate("/user/admin-dashboard");
         });
         toast.success("User logged in successfuly !");
@@ -73,12 +74,17 @@ const Login = () => {
           <Col sm={{ size: 6, offset: 3 }}>
             <Card color="dark" inverse>
               <CardHeader>
-                <h5>Fill the information to login.</h5>
+                <h6>
+                  Login <RiLoginCircleFill size={50} />
+                </h6>
               </CardHeader>
               <CardBody>
                 <Form onSubmit={handleFormSubmit}>
                   <FormGroup>
-                    <Label for="username">Enter email</Label>
+                    <Label for="username">
+                      <MdEmail size={25} />
+                      Enter your email
+                    </Label>
                     <Input
                       type="email"
                       placeholder="Enter your email"
@@ -89,7 +95,10 @@ const Login = () => {
                   </FormGroup>
 
                   <FormGroup>
-                    <Label for="password">Enter password</Label>
+                    <Label for="password">
+                      <RiLockPasswordFill size={25} />
+                      Enter your password
+                    </Label>
                     <Input
                       type="password"
                       placeholder="Enter your password"
@@ -103,7 +112,7 @@ const Login = () => {
                       Login
                     </Button>
                     <CardLink tag={ReactLink} to="/signup">
-                      <h6>I don't have an account ! SignUp</h6>
+                      <h6>Don't have an account ? SignUp</h6>
                     </CardLink>
                   </Container>
                 </Form>
