@@ -21,7 +21,6 @@ import AdminNav from "../../components/AdminNav";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FaRegUser } from "react-icons/fa";
-import { TiUserAdd } from "react-icons/ti";
 import { FaUserEdit } from "react-icons/fa";
 
 function UpdateUser() {

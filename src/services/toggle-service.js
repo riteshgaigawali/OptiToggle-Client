@@ -5,3 +5,11 @@ export const getAllToggle = () => {
     return response.data;
   });
 };
+
+export const updateToggle = (toggle) => {
+  return privateAxios
+    .put(`/optitoggle/toggle/${toggle.flagId}`, toggle)
+    .then((response) => {
+      return response.data;
+    });
+};

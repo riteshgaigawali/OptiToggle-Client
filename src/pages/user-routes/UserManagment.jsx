@@ -44,7 +44,7 @@ function UserManagment() {
           });
       })
       .catch((error) => {
-        console.log(error);
+        toast.error("You are not authorized for this action !");
       });
   };
 

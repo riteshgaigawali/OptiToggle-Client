@@ -50,7 +50,7 @@ const Login = () => {
     loginUser(loginDetails)
       .then((data) => {
         doLogin(data, () => {
-          navigate("/user/admin-dashboard");
+          navigate("/user/user-management");
         });
         toast.success("User logged in successfuly !");
         setLoginDetails({
