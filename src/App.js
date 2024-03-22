@@ -8,12 +8,12 @@ import Documentation from "./pages/Documentation";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AdminDashboard from "./pages/user-routes/AdminDashboard";
 import Privateroute from "./components/Privateroute";
 import ProfileInfo from "./pages/user-routes/ProfileInfo";
 import UserManagment from "./pages/user-routes/UserManagment";
 import ToggleManagement from "./pages/user-routes/ToggleManagement";
 import CreateUser from "./pages/user-routes/CreateUser";
+import UpdateUser from "./pages/user-routes/UpdateUser";
 
 function App() {
   return (
@@ -25,10 +25,10 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/documentation" element={<Documentation />} />
         <Route path="/user" element={<Privateroute />}>
-          <Route path="admin-dashboard" element={<AdminDashboard />} />
           <Route path="profile-info" element={<ProfileInfo />} />
           <Route path="user-management" element={<UserManagment />} />
           <Route path="add-user" element={<CreateUser />} />
+          <Route path="update-user" element={<UpdateUser />} />
           <Route path="toggle-management" element={<ToggleManagement />} />
         </Route>
       </Routes>

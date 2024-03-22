@@ -1,3 +1,4 @@
+import { updateUser } from "../../services/user-service";
 import { React, useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
@@ -21,17 +22,17 @@ import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FaRegUser } from "react-icons/fa";
 import { TiUserAdd } from "react-icons/ti";
-import { getCurrentUser } from "../../auth";
-import { updateUser } from "../../services/user-service";
-import { BiSolidUser } from "react-icons/bi";
-import { CgProfile } from "react-icons/cg";
-function ProfileInfo() {
+import { FaUserEdit } from "react-icons/fa";
+
+function UpdateUser() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const user = location.state;
 
   const [data, setData] = useState({
-    firstName: "",
-    lastName: "",
-    emailid: "",
+    firstName: user.firstName,
+    lastName: user.lastName,
+    emailid: user.emailid,
     password: "",
   });
 
@@ -40,16 +41,13 @@ function ProfileInfo() {
     isError: false,
   });
 
-  useEffect(() => {
-    setData(getCurrentUser());
-  }, []);
-
   const handleChange = (event, property) => {
     setData({ ...data, [property]: event.target.value });
   };
+
   const submitForm = (event) => {
     event.preventDefault();
-    updateUser(data, data.userid)
+    updateUser(data, user.userid)
       .then((resp) => {
         toast.success("User updated successfully !");
         setData({
@@ -78,16 +76,12 @@ function ProfileInfo() {
             <Card color="dark" inverse>
               <CardHeader>
                 <h6>
-                  User Profile <CgProfile size={25} />
+                  Update User <FaUserEdit size={25} />
                 </h6>
               </CardHeader>
               <CardBody>
                 <Form onSubmit={submitForm}>
                   <FormGroup>
-                    <h6>
-                      <BiSolidUser size={25} />
-                      User Id {data.userid}
-                    </h6>
                     <Label for="firstName">
                       <FaRegUser size={25} />
                       Enter first name
@@ -167,7 +161,7 @@ function ProfileInfo() {
                   </FormGroup>
                   <Container className="text-center mt-5">
                     <Button color="light" outline>
-                      Update Profile
+                      Update User
                     </Button>
                   </Container>
                 </Form>
@@ -180,4 +174,4 @@ function ProfileInfo() {
   );
 }
 
-export default ProfileInfo;
+export default UpdateUser;

@@ -1,13 +1,17 @@
 import { React, useEffect, useState } from "react";
 import Base from "../../components/Base";
 import AdminNav from "../../components/AdminNav";
-import { deleteUser, getAllUsers } from "../../services/user-service";
+import {
+  deleteUser,
+  getAllUsers,
+  updateUser,
+} from "../../services/user-service";
 import { Button, Container, Table } from "reactstrap";
 import { format } from "date-fns";
 import { FaUserEdit } from "react-icons/fa";
 import { TiUserDelete } from "react-icons/ti";
 import { TiUserAdd } from "react-icons/ti";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 function UserManagment() {
@@ -44,6 +48,10 @@ function UserManagment() {
       });
   };
 
+  const handleUpdate = (user) => {
+    navigate("/user/update-user", { state: user });
+  };
+
   return (
     <Base>
       <AdminNav />
@@ -74,7 +82,10 @@ function UserManagment() {
                   <td>{user.emailid}</td>
                   <td>{format(user.createdOn, "MMMM do yyyy, h:mm:ss a")}</td>
                   <td className="text-right">
-                    <button className="button muted-button">
+                    <button
+                      className="button muted-button"
+                      onClick={() => handleUpdate(user)}
+                    >
                       <FaUserEdit size={25} />
                     </button>
                   </td>

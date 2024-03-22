@@ -85,7 +85,7 @@ function CustomNavbar(args) {
             {login && (
               <>
                 <NavItem>
-                  <NavLink tag={ReactLink} to="/user/admin-dashboard">
+                  <NavLink tag={ReactLink} to="/user/user-management">
                     <MdDashboardCustomize size={20} /> Dashboard
                   </NavLink>
                 </NavItem>

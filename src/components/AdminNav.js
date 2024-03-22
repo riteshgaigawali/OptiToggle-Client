@@ -28,7 +28,7 @@ const AdminNav = () => {
   return (
     <div>
       <Navbar color="dark" dark expand="md" fixed="" className="px-5">
-        <NavbarBrand href="/user/admin-dashboard">
+        <NavbarBrand tag={ReactLink} to="/user/user-management">
           <MdAdminPanelSettings size={50} /> Dashboard
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />

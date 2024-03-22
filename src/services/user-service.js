@@ -28,3 +28,11 @@ export const deleteUser = (userid) => {
     return response.data;
   });
 };
+
+export const updateUser = (user, userid) => {
+  return privateAxios
+    .put(`/optitoggle/users/${userid}`, user)
+    .then((response) => {
+      return response.data;
+    });
+};
