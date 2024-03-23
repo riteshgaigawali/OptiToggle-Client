@@ -41,14 +41,12 @@ const AdminNav = () => {
             </NavItem>
             <NavItem>
               <NavLink tag={ReactLink} to="/user/toggle-management">
-                <GiToggles size={25} />
-                Toggles
+                <GiToggles size={25} /> Toggles
               </NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                <AiFillEnvironment size={25} />
-                Environments
+                <AiFillEnvironment size={25} /> Environments
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>Production</DropdownItem>
@@ -59,14 +57,12 @@ const AdminNav = () => {
             </UncontrolledDropdown>
             <NavItem>
               <NavLink tag={ReactLink} to="/user/analytics">
-                <IoAnalyticsSharp size={25} />
-                Analitics
+                <IoAnalyticsSharp size={25} /> Analitics
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink tag={ReactLink} to="/user/profile-info">
-                <CgProfile size={25} />
-                Profile
+                <CgProfile size={25} /> Profile
               </NavLink>
             </NavItem>
           </Nav>

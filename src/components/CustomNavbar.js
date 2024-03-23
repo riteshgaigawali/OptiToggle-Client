@@ -60,14 +60,12 @@ function CustomNavbar(args) {
             </NavItem>
             <NavItem>
               <NavLink tag={ReactLink} to="/documentation">
-                <IoDocumentText size={20} />
-                Documentation
+                <IoDocumentText size={20} /> Documentation
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink tag={ReactLink} to="https://github.com/riteshgaigawali/">
-                <FaGithub size={20} />
-                GitHub
+                <FaGithub size={20} /> GitHub
               </NavLink>
             </NavItem>
             <NavItem>
@@ -96,8 +94,7 @@ function CustomNavbar(args) {
                 </NavItem>
                 <NavItem>
                   <NavLink onClick={logout}>
-                    <RiLogoutCircleRFill size={20} />
-                    Logout
+                    <RiLogoutCircleRFill size={20} /> Logout
                   </NavLink>
                 </NavItem>
               </>

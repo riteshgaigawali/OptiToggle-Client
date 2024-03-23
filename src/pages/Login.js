@@ -75,15 +75,14 @@ const Login = () => {
             <Card color="dark" inverse>
               <CardHeader>
                 <h6>
-                  Login <RiLoginCircleFill size={50} />
+                  Login <RiLoginCircleFill size={35} />
                 </h6>
               </CardHeader>
               <CardBody>
                 <Form onSubmit={handleFormSubmit}>
                   <FormGroup>
                     <Label for="username">
-                      <MdEmail size={25} />
-                      Enter your email
+                      <MdEmail size={25} /> Enter your email
                     </Label>
                     <Input
                       type="email"
@@ -96,8 +95,7 @@ const Login = () => {
 
                   <FormGroup>
                     <Label for="password">
-                      <RiLockPasswordFill size={25} />
-                      Enter your password
+                      <RiLockPasswordFill size={25} /> Enter your password
                     </Label>
                     <Input
                       type="password"
