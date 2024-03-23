@@ -101,7 +101,7 @@ function UserManagment() {
               ))
             ) : (
               <tr>
-                <td colSpan={7}>No Employees</td>
+                <td colSpan={7}>No Users Found</td>
               </tr>
             )}
           </tbody>

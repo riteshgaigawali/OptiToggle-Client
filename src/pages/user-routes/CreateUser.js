@@ -74,15 +74,14 @@ function CreateUser() {
             <Card color="dark" inverse>
               <CardHeader>
                 <h6>
-                  Create User <TiUserAdd size={30} />
+                  Create New User <TiUserAdd size={30} />
                 </h6>
               </CardHeader>
               <CardBody>
                 <Form onSubmit={submitForm}>
                   <FormGroup>
                     <Label for="firstName">
-                      <FaRegUser size={25} />
-                      Enter first name
+                      <FaRegUser size={25} /> Enter first name
                     </Label>
                     <Input
                       type="text"
@@ -120,8 +119,7 @@ function CreateUser() {
 
                   <FormGroup>
                     <Label for="emailid">
-                      <MdEmail size={25} />
-                      Enter email address
+                      <MdEmail size={25} /> Enter email address
                     </Label>
                     <Input
                       type="email"
@@ -140,8 +138,7 @@ function CreateUser() {
 
                   <FormGroup>
                     <Label for="password">
-                      <RiLockPasswordFill size={25} />
-                      Enter password
+                      <RiLockPasswordFill size={25} /> Enter password
                     </Label>
                     <Input
                       type="password"

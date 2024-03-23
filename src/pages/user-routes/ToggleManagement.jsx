@@ -6,11 +6,21 @@ import { format } from "date-fns";
 import { BiEdit } from "react-icons/bi";
 import { AiFillDelete } from "react-icons/ai";
 import { RiAddCircleFill } from "react-icons/ri";
-import { getAllToggle, updateToggle } from "../../services/toggle-service";
+import {
+  deleteToggle,
+  getAllToggle,
+  updateToggle,
+} from "../../services/toggle-service";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 function ToggleManagement() {
   const [toggles, setToggles] = useState([]);
+
+  const navigate = useNavigate();
+  const redirectToCreateToggle = () => {
+    navigate("/user/add-toggle");
+  };
 
   useEffect(() => {
     getAllToggle()
@@ -38,13 +48,29 @@ function ToggleManagement() {
         console.log(error);
       });
   };
-  // TODO : Update and Delete toggle
+
+  const handleDelete = (flagid) => {
+    deleteToggle(flagid)
+      .then((data) => {
+        toast.success(data.messege);
+        getAllToggle()
+          .then((data) => {
+            setToggles(data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        toast.error("You are not authorized for this action !");
+      });
+  };
 
   return (
     <Base>
       <AdminNav />
       <Container className="mt-3">
-        <Button size="lg">
+        <Button size="lg" onClick={redirectToCreateToggle}>
           Add New Toggle <RiAddCircleFill size={25} />
         </Button>
         <Table dark hover responsive size="">
@@ -95,13 +121,11 @@ function ToggleManagement() {
                       </Button>
                     </ButtonGroup>
                   </td>
-                  <td className="text-right">
-                    <button className="button muted-button">
-                      <BiEdit size={25} />
-                    </button>
-                  </td>
                   <td className="text-left">
-                    <button className="button muted-button">
+                    <button
+                      className="button muted-button"
+                      onClick={() => handleDelete(toggle.flagId)}
+                    >
                       <AiFillDelete size={25} />
                     </button>
                   </td>
@@ -109,7 +133,7 @@ function ToggleManagement() {
               ))
             ) : (
               <tr>
-                <td colSpan={7}>No Employees</td>
+                <td colSpan={7}>No Toggles Found</td>
               </tr>
             )}
           </tbody>
