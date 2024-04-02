@@ -1,5 +1,5 @@
-import { React, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { React, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   Button,
   Card,
@@ -13,7 +13,6 @@ import {
   Input,
   Label,
   Row,
-  ButtonGroup,
 } from "reactstrap";
 import Base from "../../components/Base";
 import { toast } from "react-toastify";
@@ -23,23 +22,20 @@ import { MdDriveFileRenameOutline } from "react-icons/md";
 import { IoOptionsSharp } from "react-icons/io5";
 import { FaKey } from "react-icons/fa";
 import { BsToggles } from "react-icons/bs";
-import { createNewToggle } from "../../services/toggle-service";
-import { getCurrentUser } from "../../auth";
+import { updateToggle } from "../../services/toggle-service";
 
-function CreateToggle() {
-  const [user, setUser] = useState();
-  useEffect(() => {
-    setUser(getCurrentUser());
-  }, []);
-
+function UpdateToggle() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const toggle = location.state;
 
   const [data, setData] = useState({
-    description: "",
-    enabled: false,
-    key: "",
-    name: "",
-    optionalField: "",
+    flagId: toggle.flagId,
+    description: toggle.description,
+    enabled: toggle.enabled,
+    key: toggle.key,
+    name: toggle.name,
+    optionalField: toggle.optionalField,
   });
 
   const [error, setError] = useState({
@@ -53,12 +49,14 @@ function CreateToggle() {
 
   const submitForm = (event) => {
     event.preventDefault();
-    createNewToggle(data, user.userid)
+
+    updateToggle(data)
       .then((resp) => {
-        toast.success(data.messege);
+        toast.success("Toggle updated successfully !");
         setData({
+          flagId: "",
           description: "",
-          enabled: false,
+          enabled: toggle.enabled,
           key: "",
           name: "",
           optionalField: "",
@@ -83,7 +81,7 @@ function CreateToggle() {
             <Card color="dark" inverse>
               <CardHeader>
                 <h6>
-                  Create New Toggle <BsToggles size={25} />
+                  Update Toggle <BsToggles size={25} />
                 </h6>
               </CardHeader>
               <CardBody>
@@ -149,7 +147,7 @@ function CreateToggle() {
                     </Label>
                     <Input
                       type="text"
-                      placeholder="Ex: 50, 'http://localhost:8080/', ..."
+                      placeholder="Ex: 50%, 'http://localhost:8080/', ..."
                       id="optionalField"
                       onChange={(e) => handleChange(e, "optionalField")}
                       value={data.optionalField}
@@ -165,7 +163,7 @@ function CreateToggle() {
                   </FormGroup>
                   <Container className="text-center mt-5">
                     <Button color="light" outline>
-                      Create Toggle
+                      Update Toggle
                     </Button>
                   </Container>
                 </Form>
@@ -178,4 +176,4 @@ function CreateToggle() {
   );
 }
 
-export default CreateToggle;
+export default UpdateToggle;

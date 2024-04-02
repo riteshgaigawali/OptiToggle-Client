@@ -3,7 +3,7 @@ import Base from "../../components/Base";
 import AdminNav from "../../components/AdminNav";
 import { Button, Container, Table, ButtonGroup } from "reactstrap";
 import { format } from "date-fns";
-import { BiEdit } from "react-icons/bi";
+import { BiSolidEdit } from "react-icons/bi";
 import { AiFillDelete } from "react-icons/ai";
 import { RiAddCircleFill } from "react-icons/ri";
 import {
@@ -31,6 +31,8 @@ function ToggleManagement() {
         console.log(error);
       });
   }, []);
+
+  console.log(toggles);
 
   const handleToggleStatus = (toggle) => {
     updateToggle(toggle)
@@ -66,6 +68,10 @@ function ToggleManagement() {
       });
   };
 
+  const handleUpdate = (toggle) => {
+    navigate("/user/update-toggle", { state: toggle });
+  };
+
   return (
     <Base>
       <AdminNav />
@@ -80,6 +86,7 @@ function ToggleManagement() {
               <th>Key</th>
               <th>Toggle Name</th>
               <th>Description</th>
+              <th>Optional Feild</th>
               <th>Created On</th>
               <th colSpan={3} className="text-center">
                 Actions
@@ -94,6 +101,7 @@ function ToggleManagement() {
                   <td>{toggle.key}</td>
                   <td>{toggle.name}</td>
                   <td>{toggle.description}</td>
+                  <td>{toggle.optionalField}</td>
                   <td>{format(toggle.createdOn, "MMMM do yyyy, h:mm:ss a")}</td>
                   <td>
                     <ButtonGroup>
@@ -120,6 +128,14 @@ function ToggleManagement() {
                         OFF
                       </Button>
                     </ButtonGroup>
+                  </td>
+                  <td className="text-right">
+                    <button
+                      className="button muted-button"
+                      onClick={() => handleUpdate(toggle)}
+                    >
+                      <BiSolidEdit size={25} />
+                    </button>
                   </td>
                   <td className="text-left">
                     <button

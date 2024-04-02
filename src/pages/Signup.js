@@ -78,7 +78,7 @@ const Signup = () => {
                 <Form onSubmit={submitForm}>
                   <FormGroup>
                     <Label for="firstName">
-                      <FaRegUser size={25} /> Enter your first name
+                      <FaRegUser size={25} /> Enter your first name*
                     </Label>
                     <Input
                       type="text"
@@ -97,7 +97,7 @@ const Signup = () => {
 
                   <FormGroup>
                     <Label for="lastName">
-                      <FaRegUser size={25} /> Enter your last name
+                      <FaRegUser size={25} /> Enter your last name*
                     </Label>
                     <Input
                       type="text"
@@ -116,7 +116,7 @@ const Signup = () => {
 
                   <FormGroup>
                     <Label for="emailid">
-                      <MdEmail size={25} /> Enter your email
+                      <MdEmail size={25} /> Enter your email*
                     </Label>
                     <Input
                       type="email"
@@ -135,7 +135,7 @@ const Signup = () => {
 
                   <FormGroup>
                     <Label for="password">
-                      <RiLockPasswordFill size={25} /> Enter your password
+                      <RiLockPasswordFill size={25} /> Enter your password*
                     </Label>
                     <Input
                       type="password"

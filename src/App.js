@@ -15,6 +15,7 @@ import ToggleManagement from "./pages/user-routes/ToggleManagement";
 import CreateUser from "./pages/user-routes/CreateUser";
 import UpdateUser from "./pages/user-routes/UpdateUser";
 import CreateToggle from "./pages/user-routes/CreateToggle";
+import UpdateToggle from "./pages/user-routes/UpdateToggle";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="update-user" element={<UpdateUser />} />
           <Route path="toggle-management" element={<ToggleManagement />} />
           <Route path="add-toggle" element={<CreateToggle />} />
+          <Route path="update-toggle" element={<UpdateToggle />} />
         </Route>
       </Routes>
     </BrowserRouter>

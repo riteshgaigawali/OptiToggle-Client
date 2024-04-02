@@ -88,7 +88,7 @@ function ProfileInfo() {
                       <BiSolidUser size={27} /> User Id {data.userid}
                     </h6>
                     <Label for="firstName" className="mt-2">
-                      <FaRegUser size={25} /> Enter first name
+                      <FaRegUser size={25} /> Enter first name*
                     </Label>
                     <Input
                       type="text"
@@ -107,7 +107,7 @@ function ProfileInfo() {
 
                   <FormGroup>
                     <Label for="lastName">
-                      <FaRegUser size={25} /> Enter last name
+                      <FaRegUser size={25} /> Enter last name*
                     </Label>
                     <Input
                       type="text"
@@ -126,7 +126,7 @@ function ProfileInfo() {
 
                   <FormGroup>
                     <Label for="emailid">
-                      <MdEmail size={25} /> Enter email address
+                      <MdEmail size={25} /> Enter email address*
                     </Label>
                     <Input
                       type="email"
@@ -145,7 +145,7 @@ function ProfileInfo() {
 
                   <FormGroup>
                     <Label for="password">
-                      <RiLockPasswordFill size={25} /> Enter new password
+                      <RiLockPasswordFill size={25} /> Enter new password*
                     </Label>
                     <Input
                       type="password"

@@ -82,7 +82,7 @@ const Login = () => {
                 <Form onSubmit={handleFormSubmit}>
                   <FormGroup>
                     <Label for="username">
-                      <MdEmail size={25} /> Enter your email
+                      <MdEmail size={25} /> Enter your email*
                     </Label>
                     <Input
                       type="email"
@@ -95,7 +95,7 @@ const Login = () => {
 
                   <FormGroup>
                     <Label for="password">
-                      <RiLockPasswordFill size={25} /> Enter your password
+                      <RiLockPasswordFill size={25} /> Enter your password*
                     </Label>
                     <Input
                       type="password"
