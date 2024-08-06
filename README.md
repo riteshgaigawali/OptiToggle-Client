@@ -1,71 +1,109 @@
-# Getting Started with Create React App
+# OptiToggle Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+OptiToggle is a web application for managing feature toggles and user management. This frontend application, built with React, provides a user-friendly interface for interacting with the OptiToggle backend services.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Home Page**: Overview of features, pricing plans, and FAQs.
+- **Login Page**: User login functionality with validation.
+- **SignUp Page**: User registration with form validation.
+- **Documentation Page**: Access API documentation directly from the application.
+- **Responsive Design**: Ensures a seamless experience across different devices.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React**: Frontend framework for building the user interface.
+- **React Router**: For navigation between different pages.
+- **Reactstrap**: UI components for styling and layout.
+- **MDBReact**: Additional UI components and icons.
+- **CSS**: Custom styles for layout and design.
+- **Axios**: For making HTTP requests to the backend.
+- **React Icons**: For adding icons to the interface.
+- **React Toastify**: For displaying notifications.
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To set up and run the frontend application locally, follow these steps:
 
-### `npm run build`
+1. **Clone the Repository**:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   git clone https://github.com/your-repo/optitoggle-client.git
+   cd optitoggle-client
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Install Dependencies**:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   Ensure you have `node` and `npm` installed. Then, install the required packages:
 
-### `npm run eject`
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. **Run the Application**:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   Start the development server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   npm start
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   The application should now be accessible at `http://localhost:3000`.
 
-## Learn More
+## Folder Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **`src/`**: Contains the source code for the application.
+  - **`components/`**: Reusable components.
+  - **`pages/`**: Page components corresponding to different routes.
+  - **`services/`**: API service functions for communicating with the backend.
+  - **`App.js`**: Main application component and routing configuration.
+  - **`index.js`**: Entry point for the React application.
+  - **`styles.css`**: Global styles.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## API Endpoints
 
-### Code Splitting
+The frontend communicates with the following backend endpoints:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **User Management**:
+  - `POST /api/v1/auth/register`: Register a new user.
+  - `POST /api/v1/auth/login`: Login a user.
+  - `GET /optitoggle/users`: Retrieve all users.
+  - `POST /optitoggle/users`: Create a new user.
+  - `PUT /optitoggle/users/{userid}`: Update a user.
+  - `DELETE /optitoggle/users/{userid}`: Delete a user.
 
-### Analyzing the Bundle Size
+- **Feature Toggles**:
+  - `GET /optitoggle/toggle`: Retrieve all feature toggles.
+  - `POST /optitoggle/user/{userid}/toggle`: Create a new feature toggle.
+  - `PUT /optitoggle/toggle/{flagId}`: Update a feature toggle.
+  - `DELETE /optitoggle/toggle/{flagId}`: Delete a feature toggle.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Testing
 
-### Making a Progressive Web App
+To run tests, use:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm test
+```
 
-### Advanced Configuration
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Contributions are welcome! Please fork the repository and submit a pull request with your changes. 
 
-### Deployment
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### `npm run build` fails to minify
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# OptiToggle-Client" 
+For any inquiries or issues, please contact:
+
+- **Author**: Your Name
+- **Email**: your.email@example.com
+- **GitHub**: [Your GitHub Profile](https://github.com/your-profile)
+
+```
+
+This `README.md` file provides a comprehensive overview of the frontend part of the OptiToggle project, including setup instructions, features, technologies, and contact information. Adjust the placeholders with your actual repository URL, author details, and any additional information relevant to your project.
