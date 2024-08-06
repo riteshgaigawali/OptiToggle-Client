@@ -92,18 +92,12 @@ npm test
 
 Contributions are welcome! Please fork the repository and submit a pull request with your changes. 
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
 For any inquiries or issues, please contact:
 
-- **Author**: Your Name
-- **Email**: your.email@example.com
-- **GitHub**: [Your GitHub Profile](https://github.com/your-profile)
+- **Author**: Ritesh Gaygawali
+- **Email**: riteshgaigawali2001.com
 
 ```
-
-This `README.md` file provides a comprehensive overview of the frontend part of the OptiToggle project, including setup instructions, features, technologies, and contact information. Adjust the placeholders with your actual repository URL, author details, and any additional information relevant to your project.
