@@ -154,4 +154,4 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 For any inquiries or issues, please contact:
 
 - **Author**: Ritesh Gaygawali
-- **Email**: riteshgaigawali2001.com
+- **Email**: riteshgaigawali2001@gmail.com
